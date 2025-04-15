@@ -1,12 +1,21 @@
+body {
+    margin: 40px;
+}
+
 #container {
     width: 640px;
     height: 640px;
     background-color: aqua;
     display: flex;
     flex-wrap: wrap;
+    border: 1px solid black;
+}
+
+button {
+    margin-bottom: 20px;
 }
 
 .square {
-    border: 1px solid black;
+/*    border: 1px solid black; */
     box-sizing: border-box;
 }
