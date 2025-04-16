@@ -1,11 +1,11 @@
 body {
     margin: 40px;
+    background-color: beige;
 }
 
 #container {
     width: 640px;
     height: 640px;
-    background-color: aqua;
     display: flex;
     flex-wrap: wrap;
     border: 1px solid black;
@@ -16,9 +16,11 @@ button {
     height: 40px;
     font-size: 18px;
     margin-right: 20px;
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .square {
-/*    border: 1px solid black; */
     box-sizing: border-box;
 }

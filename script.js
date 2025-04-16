@@ -14,8 +14,14 @@ function handleEvent(e) {
             const b = Math.floor(Math.random() * 255);
 
             e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        } else if(mode === 'progressive') {
+            let currentOpacity = e.target.style.opacity;
+            e.target.style.backgroundColor = 'blue';
+            if(currentOpacity < 1) {
+                let result = parseFloat(currentOpacity) + 0.1;
+                e.target.style.opacity = `${result}`;
+            }
         }
-        
     }
 }
 
@@ -29,6 +35,9 @@ function createDiv(input) {
         square.classList.add('square');
         square.style.width = (a / input) + "px";
         square.style.height = (a / input) + "px";
+        if(mode === 'progressive') {
+            square.style.opacity = '0';
+        }
     
         square.addEventListener('mouseover', handleEvent);
     
@@ -63,15 +72,32 @@ btnChoose.addEventListener('click', (e) => {
 
 const btnNormal = document.querySelector('#normal');
 const btnRandom = document.querySelector('#random');
+const btnProgressive = document.querySelector('#progressive');
 
 btnNormal.addEventListener('click', () => {
     btnNormal.style.backgroundColor = 'green';
     btnRandom.style.backgroundColor = '';
+    btnProgressive.style.backgroundColor = '';
     mode = 'normal';
+
+    createDiv(input);
 });
 
 btnRandom.addEventListener('click', () => {
     btnRandom.style.backgroundColor = 'green';
     btnNormal.style.backgroundColor = '';
+    btnProgressive.style.backgroundColor = '';
     mode = 'random';
-})
+
+    createDiv(input);
+});
+
+btnProgressive.addEventListener('click', () => {
+    btnProgressive.style.backgroundColor = 'green';
+    btnNormal.style.backgroundColor = '';
+    btnRandom.style.backgroundColor = '';
+    mode = 'progressive';
+
+    createDiv(input);
+});
+
