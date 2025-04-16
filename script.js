@@ -75,7 +75,7 @@ const btnRandom = document.querySelector('#random');
 const btnProgressive = document.querySelector('#progressive');
 
 btnNormal.addEventListener('click', () => {
-    btnNormal.style.backgroundColor = 'green';
+    btnNormal.style.backgroundColor = 'lightgreen';
     btnRandom.style.backgroundColor = '';
     btnProgressive.style.backgroundColor = '';
     mode = 'normal';
@@ -84,7 +84,7 @@ btnNormal.addEventListener('click', () => {
 });
 
 btnRandom.addEventListener('click', () => {
-    btnRandom.style.backgroundColor = 'green';
+    btnRandom.style.backgroundColor = 'lightgreen';
     btnNormal.style.backgroundColor = '';
     btnProgressive.style.backgroundColor = '';
     mode = 'random';
@@ -93,7 +93,7 @@ btnRandom.addEventListener('click', () => {
 });
 
 btnProgressive.addEventListener('click', () => {
-    btnProgressive.style.backgroundColor = 'green';
+    btnProgressive.style.backgroundColor = 'lightgreen';
     btnNormal.style.backgroundColor = '';
     btnRandom.style.backgroundColor = '';
     mode = 'progressive';
