@@ -13,6 +13,9 @@ body {
 
 button {
     margin-bottom: 20px;
+    height: 40px;
+    font-size: 18px;
+    margin-right: 20px;
 }
 
 .square {

@@ -2,10 +2,20 @@ const container = document.querySelector('#container');
 const a = 640;
 let input = 16;
 let isDrawing = false;
+let mode = 'normal';
 
 function handleEvent(e) {
     if(isDrawing) {
-        e.target.style.backgroundColor = 'black';
+        if(mode === 'normal') {
+            e.target.style.backgroundColor = 'black';
+        } else if(mode === 'random') {
+            const r = Math.floor(Math.random() * 255);
+            const g = Math.floor(Math.random() * 255);
+            const b = Math.floor(Math.random() * 255);
+
+            e.target.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+        }
+        
     }
 }
 
@@ -26,10 +36,19 @@ function createDiv(input) {
     }
 }
 
-createDiv(input);
+document.addEventListener('mousedown', () => {
+    isDrawing = true;
+});
 
-const btn = document.querySelector('button');
-btn.addEventListener('click', (e) => {
+document.addEventListener('mouseup', () => {
+    isDrawing = false;
+});
+
+
+createDiv(input);
+const btnChoose = document.querySelector('#choose');
+
+btnChoose.addEventListener('click', (e) => {
     do {
         input = prompt("Please, enter your dimensions between 1 and 100:");
         if(input === null) {
@@ -42,10 +61,17 @@ btn.addEventListener('click', (e) => {
     createDiv(input);
 });
 
-document.addEventListener('mousedown', () => {
-    isDrawing = true;
+const btnNormal = document.querySelector('#normal');
+const btnRandom = document.querySelector('#random');
+
+btnNormal.addEventListener('click', () => {
+    btnNormal.style.backgroundColor = 'green';
+    btnRandom.style.backgroundColor = '';
+    mode = 'normal';
 });
 
-document.addEventListener('mouseup', () => {
-    isDrawing = false;
+btnRandom.addEventListener('click', () => {
+    btnRandom.style.backgroundColor = 'green';
+    btnNormal.style.backgroundColor = '';
+    mode = 'random';
 })
